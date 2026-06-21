@@ -17,6 +17,7 @@ __pycache__/
 dbt/lending/target/
 dbt/lending/dbt_packages/
 dbt/lending/logs/
+dbt/lending/.user.yml
 logs/
 
 # OS / editors

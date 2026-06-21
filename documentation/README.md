@@ -28,10 +28,20 @@ dataset.
 - ⏳ 10 — Dates & cohort analysis
 
 ### Databases
-- ⏳ What is a database? · PostgreSQL basics · the raw / staging / marts schemas
+- ✅ [01 — What is a database?](databases/01-what-is-a-database.md)
+- ✅ [02 — PostgreSQL basics](databases/02-postgresql-basics.md)
+- ✅ [03 — The raw / staging / marts layers](databases/03-raw-staging-marts.md)
 
 ### Docker
-- ⏳ What is Docker? · running PostgreSQL in a container
+- ✅ [01 — What is Docker?](docker/01-what-is-docker.md)
+- ✅ [02 — Running PostgreSQL with Docker Compose](docker/02-running-postgres-with-docker.md)
+
+### Python
+- ✅ [01 — Loading data into a database (ETL)](python/01-loading-data-etl.md)
+
+### Git & GitHub
+- ✅ [01 — Git basics](git-github/01-git-basics.md)
+- ⏳ 02 — Branching & pull requests
 
 ### dbt
 - ⏳ What is dbt? · the staging → intermediate → marts layers · sources & refs · tests & docs
@@ -39,14 +49,8 @@ dataset.
 ### Data modeling
 - ⏳ Star schema · facts vs dimensions · grain & keys
 
-### Python
-- ⏳ ETL: loading data into a database
-
 ### Tableau
 - ⏳ Tableau basics · dashboard design
-
-### Git & GitHub
-- ⏳ Git basics · branching & pull requests
 
 ### Finance domain
 - ⏳ Lending terms: default, charge-off, recovery, ROI, vintage

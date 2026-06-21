@@ -44,7 +44,9 @@ dataset.
 - ⏳ 02 — Branching & pull requests
 
 ### dbt
-- ⏳ What is dbt? · the staging → intermediate → marts layers · sources & refs · tests & docs
+- ✅ [01 — What is dbt?](dbt/01-what-is-dbt.md)
+- ✅ [02 — The staging layer](dbt/02-staging-layer.md)
+- ✅ [03 — dbt tests](dbt/03-dbt-tests.md)
 
 ### Data modeling
 - ⏳ Star schema · facts vs dimensions · grain & keys

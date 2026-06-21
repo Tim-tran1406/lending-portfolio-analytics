@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_loans
+    description: >
+      One row per loan, cleaned from raw.loans: text cast to proper types,
+      term parsed to a number, dates parsed, columns renamed clearly.
+    columns:
+      - name: loan_id
+        description: "Unique loan identifier."
+        data_tests:
+          - unique
+          - not_null
+      - name: loan_amount
+        description: "Amount the borrower requested."
+        data_tests:
+          - not_null
+      - name: interest_rate
+        description: "Annual interest rate as a number (e.g. 13.99)."
+        data_tests:
+          - not_null
+      - name: grade
+        description: "LendingClub risk grade A (best) to G (worst)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+      - name: loan_status
+        description: "Current status of the loan (Fully Paid, Charged Off, Current, ...)."
+        data_tests:
+          - not_null
+      - name: issue_date
+        description: "Month the loan was issued (first of month)."
+        data_tests:
+          - not_null

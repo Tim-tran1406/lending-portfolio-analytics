@@ -1,0 +1,31 @@
+name: 'lending'
+version: '1.0.0'
+config-version: 2
+
+# Which connection profile to use (defined in profiles.yml).
+profile: 'lending'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# How each layer is built and which schema it lands in.
+# staging  -> views   in schema "staging"
+# marts    -> tables  in schema "marts"
+models:
+  lending:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts

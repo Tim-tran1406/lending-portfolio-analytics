@@ -1,0 +1,18 @@
+# Tells dbt how to connect to PostgreSQL.
+# Values come from environment variables (loaded from your .env), so there are
+# NO secrets in this file and it is safe to commit.
+#
+# Run dbt from this folder with:  dbt build --profiles-dir .
+
+lending:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | as_number }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      dbname: "{{ env_var('POSTGRES_DB') }}"
+      schema: public
+      threads: 4

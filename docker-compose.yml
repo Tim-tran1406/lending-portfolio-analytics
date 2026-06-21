@@ -1,0 +1,24 @@
+# Runs a local PostgreSQL database in a container.
+#
+#   docker compose up -d      # start it (in the background)
+#   docker compose down       # stop it (keeps the data)
+#   docker compose down -v    # stop it AND delete the data
+#
+# Values in ${...} are read automatically from your .env file.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: lending_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

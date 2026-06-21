@@ -1,0 +1,25 @@
+# Raw data — never committed (lives in data/, reproduced by the ingest scripts)
+data/
+*.zip
+*.gz
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.python-version
+
+# Secrets / local config
+.env
+
+# dbt build artifacts
+dbt/lending/target/
+dbt/lending/dbt_packages/
+dbt/lending/logs/
+logs/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

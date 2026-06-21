@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Date dimension at month grain (loan issue month)."
+    columns:
+      - name: date_key
+        description: "YYYYMM integer, e.g. 201512."
+        data_tests: [unique, not_null]
+
+  - name: dim_grade
+    description: "Risk grade dimension at sub-grade grain (e.g. C1) with parent grade."
+    columns:
+      - name: grade_key
+        description: "Sub-grade, used as the key (e.g. C1)."
+        data_tests: [unique, not_null]
+
+  - name: dim_geography
+    description: "US state dimension with Census region."
+    columns:
+      - name: state_key
+        description: "Two-letter state code."
+        data_tests: [unique, not_null]
+      - name: region
+        data_tests:
+          - accepted_values:
+              values: ['Northeast', 'Midwest', 'South', 'West', 'Other']
+
+  - name: dim_purpose
+    description: "Loan purpose dimension (debt_consolidation, credit_card, ...)."
+    columns:
+      - name: purpose_key
+        data_tests: [unique, not_null]
+
+  - name: dim_borrower
+    description: "Junk dimension of categorical borrower traits, surrogate key via md5()."
+    columns:
+      - name: borrower_key
+        data_tests: [unique, not_null]
+
+  - name: fct_loans
+    description: "One row per loan: dimension keys, measures, and business flags."
+    columns:
+      - name: loan_id
+        description: "Unique loan identifier (the grain)."
+        data_tests: [unique, not_null]
+      - name: date_key
+        description: "FK to dim_date."
+        data_tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: grade_key
+        description: "FK to dim_grade."
+        data_tests:
+          - relationships:
+              to: ref('dim_grade')
+              field: grade_key
+      - name: borrower_key
+        description: "FK to dim_borrower."
+        data_tests:
+          - relationships:
+              to: ref('dim_borrower')
+              field: borrower_key

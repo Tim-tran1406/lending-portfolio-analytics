@@ -49,7 +49,9 @@ dataset.
 - ✅ [03 — dbt tests](dbt/03-dbt-tests.md)
 
 ### Data modeling
-- ⏳ Star schema · facts vs dimensions · grain & keys
+- ✅ [01 — The star schema](data-modeling/01-star-schema.md)
+- ✅ [02 — Facts vs dimensions](data-modeling/02-facts-vs-dimensions.md)
+- ✅ [03 — Grain and keys](data-modeling/03-grain-and-keys.md)
 
 ### Tableau
 - ⏳ Tableau basics · dashboard design
